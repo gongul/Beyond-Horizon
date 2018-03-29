@@ -35,7 +35,7 @@ public class MongoConfig extends AbstractMongoConfiguration{
 	@Override
 	@Bean
 	public Mongo mongo() throws Exception {
-		String mongoUri = ";
+		String mongoUri = "";
 		MongoClientURI connStr = new MongoClientURI(mongoUri);
 		MongoClient mongoClient = new MongoClient(connStr);
 		
