@@ -9,4 +9,5 @@ Spring data rest + mongo 를 이용한 rest api 프로젝트 입니다.
 
 ## 설치방법
 mongoDB, java 1.8, apache-tomact 9, apache-maven 3.5가 필요합니다.
+
 git clone 하시고 horizon.config.MongoConfig mongo 메소드안에 mongUri 변수에다가  mongo connect 를 적어주세요.  
