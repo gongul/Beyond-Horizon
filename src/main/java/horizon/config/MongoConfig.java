@@ -35,7 +35,7 @@ public class MongoConfig extends AbstractMongoConfiguration{
 	@Override
 	@Bean
 	public Mongo mongo() throws Exception {
-		String mongoUri = ";
+		String mongoUri = "mongodb://horizon:beyond_horizon@127.0.0.1:27017/horizon";
 		MongoClientURI connStr = new MongoClientURI(mongoUri);
 		MongoClient mongoClient = new MongoClient(connStr);
 		
