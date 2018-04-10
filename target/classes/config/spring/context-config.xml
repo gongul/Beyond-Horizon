@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?> 
 <beans xmlns:context="http://www.springframework.org/schema/context"
     xmlns:p="http://www.springframework.org/schema/p"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -7,16 +7,44 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-       
+       <!---->
 	<context:component-scan base-package="horizon">
-		<!--  <context:include-filter type="annotation" expression="org.springframework.context.annotation.Configuration"/> -->
 	</context:component-scan>
 	
+	<!--  
+	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean" />
+
+	<bean class="org.springframework.data.repository.support.DomainClassConverter">
+		<constructor-arg ref="conversionService" />
+	</bean>
+	-->
+<!--
+	<mvc:annotation-driven conversion-service="conversionService">
+		<mvc:message-converters>
+			<bean class="horizon.config.HalHttpMessageConverter"/> 
+	 	</mvc:message-converters>
+	 	
+		<mvc:argument-resolvers>
+			  <bean class="org.springframework.data.web.PageableHandlerMethodArgumentResolver" />
+			<ref bean="sortResolver"/>
+			<ref bean="pageableResolver" />
+			<bean id="sortResolver" class="org.springframework.data.web.SortHandlerMethodArgumentResolver" />
+				<bean id="pageableResolver" class="org.springframework.data.web.PageableHandlerMethodArgumentResolver">
+				<constructor-arg ref="sortResolver" />
+			</bean>
+		</mvc:argument-resolvers>
+		
+	</mvc:annotation-driven>
+	-->
+	<!--  
 	<mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
             <bean id="loggerInterceptor" class="horizon.common.logger.LoggerInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
+	-->
+	  
+		
 	
 </beans>

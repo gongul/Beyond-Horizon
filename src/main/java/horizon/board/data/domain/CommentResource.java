@@ -1,4 +1,4 @@
-package horizon.board.data;
+package horizon.board.data.domain;
 
 import java.util.Date;
 import java.util.List;
@@ -16,27 +16,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Document
 public class CommentResource extends ResourceSupport{
-	@Id
-	@JsonProperty(value="id")
-	private String objectId;
 	private String userId;
 	private String content;
 	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
 	private Date regDate;
-	@DBRef
-	private Article article;
 	
 	public CommentResource() {
 	}
 	
-	public String getObjectId() {
-		return objectId;
-	}
-
-	public void setObjectId(String objectId) {
-		this.objectId = objectId;
-	}
-
 	public String getUserId() {
 		return userId;
 	}
@@ -60,14 +47,5 @@ public class CommentResource extends ResourceSupport{
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
-	
-	public Article getArticle() {
-		return article;
-	}
-	
-	public void setArticle(Article article) {
-		this.article = article;
-	}
-	
 	
 }

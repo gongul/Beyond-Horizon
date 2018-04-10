@@ -26,23 +26,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import horizon.board.data.ArticleCustomRepository;
+import horizon.board.data.repo.ArticleCustomRepository;
 import horizon.member.data.Member;
 
-@RestController
-@RequestMapping("/test")
-public class TestController {
-	Logger log = Logger.getLogger(this.getClass());
-	@Resource(name="articleCustomRepo")
-	private ArticleCustomRepository repo;
-	
-	@RequestMapping(value="",method=RequestMethod.POST)
-	public HttpEntity<Map<String, Object>> test(@RequestBody Map<String,Object> param){
-//		repo.test(param);
-//		log.debug(param);
-		repo.test();
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
+//@RestController
+//@RequestMapping("/test")
+//public class TestController {
+//	Logger log = Logger.getLogger(this.getClass());
+//	@Resource(name="articleCustomRepo")
+//	private ArticleCustomRepository repo;
+//	
+//	@RequestMapping(value="",method=RequestMethod.POST)
+//	public HttpEntity<Map<String, Object>> test(@RequestBody Map<String,Object> param){
+////		repo.test(param);
+////		log.debug(param);
+//		return new ResponseEntity<>(HttpStatus.OK);
+//	}
 //	@Autowired EntityLinks entityLinks;
 	
 //	@RequestMapping(value="test",method=RequestMethod.GET,produces= MediaType.APPLICATION_JSON_VALUE)
@@ -60,4 +59,4 @@ public class TestController {
 ////		return new ResponseEntity<>(assembler.toResource(user),HttpStatus.OK);
 //		return new ResponseEntity<>(HttpStatus.OK);
 //	}
-}
+//}

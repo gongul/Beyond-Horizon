@@ -17,6 +17,7 @@ import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
@@ -73,6 +74,10 @@ public class MongoConfig extends AbstractMongoConfiguration{
 	public @Bean MongoTemplate mongoTemplate() throws Exception {
 		// TODO Auto-generated method stub
 		return new MongoTemplate(mongoDbFactory(), mongoConverter());
+	}
+	
+	public @Bean ObjectMapper objectMapper() {
+		return new ObjectMapper();
 	}
 
 

@@ -13,7 +13,6 @@ import javax.annotation.Resource;
 import javax.print.attribute.standard.Media;
 
 import org.apache.log4j.Logger;
-import org.elasticsearch.action.admin.cluster.snapshots.status.TransportNodesSnapshotsStatus.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

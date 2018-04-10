@@ -23,9 +23,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import horizon.board.data.Article;
-import horizon.board.data.ArticleCustomRepository;
-import horizon.board.data.Comment;
+import horizon.board.data.domain.Article;
+import horizon.board.data.domain.Comment;
+import horizon.board.data.repo.ArticleCustomRepository;
 
 @RepositoryRestController 
 @RequestMapping(value = "/comments/")

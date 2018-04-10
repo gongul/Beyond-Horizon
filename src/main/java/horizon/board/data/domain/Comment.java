@@ -1,4 +1,4 @@
-package horizon.board.data;
+package horizon.board.data.domain;
 
 import java.util.Date;
 import java.util.List;
