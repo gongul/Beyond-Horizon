@@ -36,14 +36,14 @@
 		
 	</mvc:annotation-driven>
 	-->
-	<!--  
+	<!--  -->
 	<mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
             <bean id="loggerInterceptor" class="horizon.common.logger.LoggerInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
-	-->
+	
 	  
 		
 	

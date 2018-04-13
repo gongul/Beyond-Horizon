@@ -16,5 +16,4 @@ import java.lang.String;
 @RepositoryRestResource(collectionResourceRel="articles",path="articles")
 public interface ArticleRepository extends MongoRepository<Article, Integer>,PagingAndSortingRepository<Article, Integer>{
 	
-	List<Article> findByUserId(@Param("userId") String userId);
 }

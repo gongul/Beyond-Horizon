@@ -28,8 +28,6 @@ public class Article {
 	private boolean articleR;
 	@DBRef
 	private List<Comment> comments;
-//	@DBRef
-//	private Comment comment;
 	
 	public Article() {
 		this.regDate = new Date();
@@ -90,14 +88,6 @@ public class Article {
 	public void setArticleR(boolean articleR) {
 		this.articleR = articleR;
 	}
-
-//	public Comment getComment() {
-//		return comment;
-//	}
-//
-//	public void setComment(Comment comment) {
-//		this.comment = comment;
-//	}
 
 	public List<Comment> getComments() {
 		return comments;

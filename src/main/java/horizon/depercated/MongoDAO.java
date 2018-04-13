@@ -27,14 +27,10 @@ public class MongoDAO extends AbstractMongoDAO{
     	List<TestVO> list = (List<TestVO>) selectAllList("members", TestVO.class);
     	Iterator<TestVO> listKey = list.iterator();
     	
-    	log.debug(listKey.hasNext());
     	
     	while(listKey.hasNext()){
     		TestVO vo = listKey.next();
     		
-    		log.debug(vo.getName());
-    		log.debug(vo.getSex());
-    		log.debug(vo.getId());
     	}
     	
     }

@@ -22,7 +22,7 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-//@RestControllerAdvice
+@RestControllerAdvice
 //@Order(2)
 public class ResponseException{
 	Logger log = Logger.getLogger(this.getClass());

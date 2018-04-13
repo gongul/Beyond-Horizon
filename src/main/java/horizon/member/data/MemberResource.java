@@ -32,15 +32,7 @@ public class MemberResource extends ResourceSupport{
 		this.name = member.getName();
 		this.sex = member.getSex();
 	}
-	//	public String getUserId() {
-//		return id;
-//	}
-//
-//	public void setUserId(String id) {
-//		this.id = id;
-//	}
-
-	public String getPassword() {
+		public String getPassword() {
 		return password;
 	}
 

@@ -61,9 +61,6 @@ public class ArticleCustomRepository{
 	@Resource(name="mongo")
 	private MongoClient mongoClient;
 	
-	@Resource(name="objectMapper")
-	private ObjectMapper mapper;
-	
 	Logger log = Logger.getLogger(this.getClass());
 	
 	public ArticleResource postArticle(Document data) {
@@ -71,7 +68,7 @@ public class ArticleCustomRepository{
 		MongoCollection<Document> collection = db.getCollection("article");
 		long idx = collection.count();
 		ArticleResource article = new ArticleResource();
-		ControllerLinkBuilder linkBuilder = linkTo(ArticleController.class).slash(idx);
+		ControllerLinkBuilder linkBuilder = linkTo(ArticleController.class).slash("articles").slash(idx);
 		Links links = new Links(linkBuilder.withSelfRel(),linkBuilder.withRel("article"),linkBuilder.slash("comments").withRel("comments"));
 		Document doc = null;
 		
@@ -84,7 +81,7 @@ public class ArticleCustomRepository{
 		return article;
 	}
 	
-	public List<CommentResource> data(int idx){
+	public List<CommentResource> getComments(int idx){
 		MongoDatabase db = mongoClient.getDatabase("horizon");
 		MongoCollection<Document> collection = db.getCollection("comment");
 		DBRef ref = new DBRef("article", idx); 
@@ -97,15 +94,13 @@ public class ArticleCustomRepository{
 				log.debug("test1");
 				Document doc = cursor.next();
 				CommentResource comment = new CommentResource();
-				ControllerLinkBuilder linkBuilder = linkTo(CommentController.class).slash(doc.get("_id"));
+				ControllerLinkBuilder linkBuilder = linkTo(CommentController.class).slash("comments").slash(doc.get("_id"));
 				
 				Links links = new Links(linkBuilder.withSelfRel(),linkBuilder.withRel("comment"),linkBuilder.slash("article").withRel("article"));
-//				ObjectUtil.convertMapToObject(doc, comment);
 				comment.setContent(doc.getString("content"));
 				comment.setUserId(doc.getString("userId"));
 				comment.setRegDate(doc.getDate("regDate"));
 				comment.add(links);
-				log.debug(doc);
 				list.add(comment);
 			}
 		}finally {

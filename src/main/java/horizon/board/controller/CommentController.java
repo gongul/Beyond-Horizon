@@ -24,11 +24,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import horizon.board.data.domain.Article;
+import horizon.board.data.domain.ArticleResource;
 import horizon.board.data.domain.Comment;
 import horizon.board.data.repo.ArticleCustomRepository;
+import horizon.board.data.repo.CommentCustomRepository;
 
 @RepositoryRestController 
-@RequestMapping(value = "/comments/")
 public class CommentController {
-	
+//	@Resource(name="commentCustomRepo")
+//	private CommentCustomRepository repo;
+//	
+//	@RequestMapping(value="/comments/{id}/article",method=RequestMethod.GET,produces="application/hal+json")
+//	public HttpEntity<org.springframework.hateoas.Resource<ArticleResource>> getArticle(@PathVariable("id") String id) {
+//		ArticleResource article = repo.getArticle(id);
+//		
+//		org.springframework.hateoas.Resource<ArticleResource> resource = new org.springframework.hateoas.Resource<ArticleResource>(article);
+//		
+//		return new ResponseEntity<>(resource,HttpStatus.OK);
+//
+//	}
 }

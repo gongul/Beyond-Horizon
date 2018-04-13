@@ -31,7 +31,9 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -47,8 +49,6 @@ import horizon.board.data.repo.ArticleRepository;
 import horizon.board.service.ArticleService;
 
 @RepositoryRestController
-//@BasePathAwareController
-//@RequestMapping(path="")
 public class ArticleController {
 	@Resource(name="articleCustomRepo")
 	private ArticleCustomRepository cRepo;
@@ -56,22 +56,26 @@ public class ArticleController {
 	@Resource(name="articleService")
 	private ArticleService service;
 	
+	@Resource(name="articleRepo")
+	private ArticleRepository repo;
+	
 	Logger log = Logger.getLogger(this.getClass());
 	
 	@RequestMapping(value="/articles/{idx}/comments",method=RequestMethod.GET,produces="application/hal+json")
-	public HttpEntity<List<CommentResource>> getComment(@PathVariable("idx") int idx) {
-		log.debug("test");
-		List<CommentResource> list = cRepo.data(idx);
-		return new ResponseEntity<>(list,HttpStatus.OK);
+	public HttpEntity<Resources<CommentResource>> getComments(@PathVariable("idx") int idx) {
+		Resources<CommentResource> resource = service.getComments(idx);
+		
+		return new ResponseEntity<>(resource,HttpStatus.OK);
 	}
 	
 	@RequestMapping(value="/articles",method=RequestMethod.POST,produces="application/hal+json")
 	public HttpEntity<ArticleResource> postArticle(@RequestBody Map<String,Object> map) {
-		log.debug("ta");
 		ArticleResource article = service.postArticle(map);
 		
+		log.debug(article);
 		return new ResponseEntity<>(article, HttpStatus.OK);
 	}
+	
 	
 	
 }
